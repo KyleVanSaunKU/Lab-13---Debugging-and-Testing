@@ -26,17 +26,12 @@ bool fail_lecture(const vector<int>& attendance_records) {
 3. Define a test case that executes the fault but does not result in an error
 state.
 
-Here is the fixed function (MainFixed.cpp):
-
-bool fail_lecture(const vector<int>& attendance_records) {
-    int absent_count = 0;
-    
-    for (int i = 0; i < attendance_records.size(); ++i) {
-        absent_count += (attendance_records[i] == 0); 
-    }
-    return absent_count >= 3;
-}
+{1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1}
+The program initializes the loop at i = 1 which causes it to skip the first element of the array
 
 4. Define a test case that results in an error state but not a failure.
+
+{0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
+The loop starts at i = 1 which skips the first value at index 0
 
 5. Define a test case that results in failure.
