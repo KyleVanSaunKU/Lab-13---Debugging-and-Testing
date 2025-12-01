@@ -3,6 +3,7 @@
 
 using namespace std;
 
+// heres the implementation of the sudo code given in the Lab13_instruction pdf
 bool fail_lecture(const vector<int>& attendance_records) {
     int absent_count = 0;
     
