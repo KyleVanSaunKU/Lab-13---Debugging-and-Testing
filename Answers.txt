@@ -1,0 +1,31 @@
+1. Is there a fault in the program? If so, locate it and explain.
+
+Yes there is a fault which is located in the initialization of the for loop on line 3: int i = 1;
+By initializing the loop counter i to 1 the program skips the first lecture which is bad.
+
+2. Define a test case that does not execute the fault. Start from this ques-
+tion, if it is possible, you should give the test case (the attendance record
+with 10 values), the expected output and the actual output. If impossible,
+explains the reason. Besides, you should implement the complete program,
+including the functions under test, and verify your inputs along with their
+corresponding outputs.
+
+Since we cant change the code and the fault is in the main loop of the function call, there is 
+no possible test case which avoids the int i = 1 error.
+Here is the implemented program (I also created a C++ file which actually works too and is in this github repository):
+
+bool fail_lecture(const vector<int>& attendance_records) {
+    int absent_count = 0;
+    
+    for (int i = 1; i < attendance_records.size(); ++i) {
+        absent_count += (attendance_records[i] == 0); 
+    }
+    return absent_count >= 3;
+}
+
+3. Define a test case that executes the fault but does not result in an error
+state.
+
+4. Define a test case that results in an error state but not a failure.
+
+5. Define a test case that results in failure.
