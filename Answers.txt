@@ -12,7 +12,7 @@ corresponding outputs.
 
 Since we cant change the code and the fault is in the main loop of the function call, there is 
 no possible test case which avoids the int i = 1 error.
-Here is the implemented program (I also created a C++ file which actually works too and is in this github repository):
+Here is the implemented function (Main.cpp):
 
 bool fail_lecture(const vector<int>& attendance_records) {
     int absent_count = 0;
@@ -25,6 +25,17 @@ bool fail_lecture(const vector<int>& attendance_records) {
 
 3. Define a test case that executes the fault but does not result in an error
 state.
+
+Here is the fixed function (MainFixed.cpp):
+
+bool fail_lecture(const vector<int>& attendance_records) {
+    int absent_count = 0;
+    
+    for (int i = 0; i < attendance_records.size(); ++i) {
+        absent_count += (attendance_records[i] == 0); 
+    }
+    return absent_count >= 3;
+}
 
 4. Define a test case that results in an error state but not a failure.
 
