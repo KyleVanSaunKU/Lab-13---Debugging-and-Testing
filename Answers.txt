@@ -1,7 +1,7 @@
 1. Is there a fault in the program? If so, locate it and explain.
 
 Yes there is a fault which is located in the initialization of the for loop on line 3: int i = 1;
-By initializing the loop counter i to 1 the program skips the first lecture which is bad.
+By initializing the loop counter i to 1 the program skips the first lecture which is inccorect.
 
 2. Define a test case that does not execute the fault. Start from this ques-
 tion, if it is possible, you should give the test case (the attendance record
@@ -26,12 +26,18 @@ bool fail_lecture(const vector<int>& attendance_records) {
 3. Define a test case that executes the fault but does not result in an error
 state.
 
-{1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1}
-The program initializes the loop at i = 1 which causes it to skip the first element of the array
+{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
+The program initializes the loop at i = 1 which causes it to skip the first element of the array and causes the fault but still doesnt error
 
 4. Define a test case that results in an error state but not a failure.
 
 {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
-The loop starts at i = 1 which skips the first value at index 0
+The loop starts at i = 1 which skips the first value at index 0 but is never noticed by the program
 
 5. Define a test case that results in failure.
+
+{0, 0, 0, 1, 1, 1, 1, 1, 1, 1}
+A student fails if they miss 3 or more lectures but this shows the student still passes because of the index error
+
+{0, 0, 0, 0, 1, 1, 1, 1, 1, 1}
+This is a total fail no matter what
